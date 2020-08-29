@@ -1,0 +1,40 @@
+.App {
+    background: black;
+}
+
+.header {
+    text-align: center;
+}
+
+h1 {
+    color: white;
+}
+
+#root {
+    display: block;
+}
+
+.SearchForm {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    background-color: grey;
+}
+
+.AddFilter, .BookList, .ListApp {
+    text-align: center;
+}
+
+.AddFilter {
+    background: #a8dadc;
+}
+
+.ListApp {
+    display: flex;
+    flex-direction: column;
+}
+
+.BookList {
+    flex-direction: row;
+}
