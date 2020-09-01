@@ -1,25 +1,36 @@
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
 .App {
     background: black;
+    
 }
 
 .header {
+    margin: 0 auto;
     text-align: center;
+    background: black;
 }
 
 h1 {
     color: white;
 }
 
-#root {
-    display: block;
+main {
+    display: flex;
+    flex-direction: column;
 }
 
 .SearchForm {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-
     background-color: grey;
+    text-align: center;
+    
+}
+
+.SearchForm__Form, .SearchForm__Buttons {
+    display: row;
 }
 
 .AddFilter, .BookList, .ListApp {
@@ -28,6 +39,7 @@ h1 {
 
 .AddFilter {
     background: #a8dadc;
+    padding: 0.5%;
 }
 
 .ListApp {
