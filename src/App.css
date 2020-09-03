@@ -40,6 +40,7 @@ main {
 .AddFilter {
     background: #a8dadc;
     padding: 0.5%;
+    
 }
 
 .ListApp {
@@ -49,4 +50,8 @@ main {
 
 .BookList {
     flex-direction: row;
+}
+
+.AddFilter__Form {
+    justify-content: space-around;
 }

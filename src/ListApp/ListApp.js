@@ -9,7 +9,7 @@ class ListApp extends Component {
         return (
             <div className="ListApp">
                 <BookList 
-                    {...this.props}/>
+                    book={this.props}/>
             </div>
         )
     }

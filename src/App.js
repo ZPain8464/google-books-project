@@ -7,14 +7,16 @@ import './App.css';
 
 class App extends Component { 
 
+  state = {
+    books: []
+  }
+
   addBooks(book) {
-      this.setState({
-        book: [book]
-    })
+    this.setState({books: book.items});
   }
 
   render() {
-    console.log(this.state)
+    
     return(
       <>
       <div className="App">
@@ -24,7 +26,7 @@ class App extends Component {
         <SearchForm 
           handleAdd={book => this.addBooks(book)}/>
         <ListApp 
-          {...this.state}/>
+           books={this.state}/>
       </main>
       </>
     )

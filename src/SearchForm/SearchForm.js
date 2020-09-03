@@ -5,8 +5,13 @@ import AddFilter from '../AddFilter/AddFilter';
 
 class SearchForm extends Component {
 
+    // saleinfo/ isEbook, retailprice/amount , 
+    //saleability/FREE or NOT_FOR_SALE or FOR_SALE --> listPrice/amount, buyLink
+
     state = {
         book: "",
+        printType: "",
+        availability: "",
     }
 
     newQuery(book) {
@@ -17,9 +22,10 @@ class SearchForm extends Component {
 
       handleSubmit(e) {
           e.preventDefault();
+          console.log(this.state)
           const API_KEY = 'AIzaSyDkffgGUpRDbUv18P6szFP5ml3F2ZYSa1M'
           const fields = 'items/volumeInfo(title,authors,description,imageLinks/smallThumbnail)'
-          const url = `https://www.googleapis.com/books/v1/volumes?q="${this.state.book}"&key=${API_KEY}&maxResults=2&fields=${fields}`;
+          const url = `https://www.googleapis.com/books/v1/volumes?q="${this.state.book}"&key=${API_KEY}&maxResults=4&fields=${fields}&filter=${this.state.availability}&printType=${this.state.printType}`;
           fetch(url)
             .then(res => {
                 if(!res.ok) {
@@ -28,10 +34,14 @@ class SearchForm extends Component {
                 return res.json();
             })
             .then(data => {
-                console.log(data)
-                data.items.map(book => {
-                    this.props.handleAdd(book);
-                })  
+                this.setState({
+                    title: "",
+                    price: "",
+                    description: "",
+                    authors: "",
+                    thumbnail: ""
+                })
+            this.props.handleAdd(data);
             })
             .catch(err => {
                 this.setState({
@@ -39,6 +49,18 @@ class SearchForm extends Component {
                 });
             });
       }
+
+    addPrintType = (printType) => {
+        this.setState({
+            printType: printType
+        })
+    }
+
+    addAvailability = (availability) => {
+        this.setState({
+            availability: availability
+        })
+    }
 
     render() {
         
@@ -61,7 +83,9 @@ class SearchForm extends Component {
                 </div>
                 </form>
             </div>
-            <AddFilter />
+            <AddFilter 
+                handlePrintType={printType => this.addPrintType(printType)}
+                handleAvailability={availability => this.addAvailability(availability)}/>
             </>
         );
     }
