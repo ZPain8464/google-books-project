@@ -1,57 +1,69 @@
 #root {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .App {
-    background: black;
-    
+  background: black;
 }
 
 .header {
-    margin: 0 auto;
-    text-align: center;
-    background: black;
+  margin: 0 auto;
+  text-align: center;
+  background: black;
 }
 
 h1 {
-    color: white;
+  color: white;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .SearchForm {
-    background-color: grey;
-    text-align: center;
-    
+  background-color: grey;
+  text-align: center;
 }
 
-.SearchForm__Form, .SearchForm__Buttons {
-    display: row;
-}
-
-.AddFilter, .BookList, .ListApp {
-    text-align: center;
+.AddFilter,
+.BookList,
+.ListApp {
+  text-align: center;
 }
 
 .AddFilter {
-    background: #a8dadc;
-    padding: 0.5%;
-    
+  background: #a8dadc;
+  padding: 0.5%;
 }
 
 .ListApp {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .BookList {
-    flex-direction: row;
+  color: white;
 }
 
-.AddFilter__Form {
-    justify-content: space-around;
+.BookList ul {
+  list-style: none;
+}
+.BookList li {
+  border-bottom: 1px solid #ccc;
+
+  padding: 20px;
+}
+
+.AddFilter__Form,
+.SearchForm__Form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AddFilter__Form *,
+.SearchForm__Form * {
+  margin: 5px;
 }
